@@ -39,7 +39,6 @@
 Necesitas ayuda en algo o algún problema con este blog por favor llena este formulario
 </h1>
 
-<form name="contact-form">
 <div class="container">
 	<div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -89,29 +88,50 @@ Necesitas ayuda en algo o algún problema con este blog por favor llena este for
 Enviar vídeo caido
 </h1>
 
-<form name="contact-form">
-<p></p>
-Nombre
-<br>
-<input class="contact-form-name" id="ContactForm1_contact-form-name" name="name" size="30" type="text" value="">
-<p></p>
-Correo electrónico
-<span style="font-weight: bolder;">*</span>
-<br>
-<input class="contact-form-email" id="ContactForm1_contact-form-email" name="email" size="30" type="text" value="">
-<p></p>
-Link del video caido
-<span style="font-weight: bolder;">*</span>
-<br>
-<textarea class="contact-form-email-message" cols="25" id="ContactForm1_contact-form-email-message" name="email-message" rows="5"></textarea>
-<p></p>
-<input class="contact-form-button contact-form-button-submit" id="ContactForm1_contact-form-submit" type="button" value="Enviar">
-<p></p>
-<div style="text-align: center; max-width: 50px; width: 100%">
-<p class="contact-form-error-message" id="ContactForm1_contact-form-error-message"></p>
-<p class="contact-form-success-message" id="ContactForm1_contact-form-success-message"></p>
-</div>
-</form>
+<div class="container">
+	<div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+            <legend class="text-center">Contact us</legend>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+              </div>
+            </div>
+    
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+		    </div>
 
 <h1>Redes Sociales</h1>
 
