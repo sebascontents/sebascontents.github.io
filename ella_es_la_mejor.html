@@ -69,42 +69,28 @@
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RyTikitS4bc?si=Kw5pbUeLnvMwrWUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-<head> 
-<div class="container">
-    <label for="newComment" name="newComment">Add your comment below-</label>
-    <textarea id="newComment"></textarea>
-    <button id="addComments">Add Comment</button>
-    <div id="allComments"></div>
-</div>
+<form>
+  <label for="comment">评论：</label>
+  <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+  <br><br>
+  <input type="submit" value="提交">
+</form>
     <script> 
-const commentContainer = document.getElementById('allComments');
-document.getElementById('addComments').addEventListener('click', function (ev) {
-   addComment(ev);
-});
+const form=document.querySelector('form');
+const commentInput=document.querySelector('#comment');
 
-function addComment(ev) {
-    let commentText, wrapDiv;
-    const textBox = document.createElement('div');
-    const replyButton = document.createElement('button');
-    replyButton.className = 'reply';
-    replyButton.innerHTML = 'Reply';
-    const likeButton = document.createElement('button');
-    likeButton.innerHTML = 'Like';
-    likeButton.className = 'likeComment';
-    const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = 'Delete';
-    deleteButton.className = 'deleteComment';
-    const wrapDiv = document.createElement('div');
-    wrapDiv.className = 'wrapper';
-    wrapDiv.style.marginLeft = 0;
-    commentText = document.getElementById('newComment').value;
-    document.getElementById('newComment').value = '';
-    textBox.innerHTML = commentText;
-    wrapDiv.append(textBox, replyButton, likeButton, deleteButton);
-    commentContainer.appendChild(wrapDiv);
-}
-     </script> 
-</body>
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const comment=commentInput.value;
+  
+  const commentElement=document.createElement('div');
+  commentElement.textContent=comment;
+  document.body.appendChild(commentElement);
+  
+  commentInput.value='';
+});
+     </script>
     
 <div>
 <h4>Comentarios</h4>
