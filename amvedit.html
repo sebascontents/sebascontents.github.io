@@ -36,8 +36,13 @@
 <h1><i>Tacata amv edit</h1></i>
 <div>
 </div>
-<div class="ratio ratio-16x9">
-  <iframe src="https://streamable.com/e/z21u69?loop=0" title="Streamable video" allowfullscreen></iframe>
+<video id="player" playsinline controls data-poster="/path/to/poster.jpg">
+  <source src="z21u69.mp4" type="video/mp4" controls data-plyr-config='{ "title": "Tacata amv edit" }'/>
+  <source src="z21u69.webm" type="video/webm" controls data-plyr-config='{ "title": "Tacata amv edit" }'/>
+
+  <!-- Captions are optional -->
+  <track kind="captions" label="Spanish captions" src="/path/to/captions.vtt" srclang="en" default />
+</video>
 </div>
 <div>
 <h4>Comentarios</h4>
