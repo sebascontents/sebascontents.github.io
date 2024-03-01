@@ -20,25 +20,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='scss/plyr.css') }}">
     </head>
  <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    </button>
-    <a class="navbar-brand" href="/">Sebas Contents</a>
-
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link" href="/">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/about">About us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/contents">Contenidos</a>
-  </li>
-</ul>
-</div>
-</nav>
-
+  <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">Sebas Contents</span><span class="badge badge-primary">Beta</span></a>
+                </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">About us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contents">Contenidos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
 <h1 class="display-4 fw-normal text-body-emphasis">Amv edit 🇦🇷</h1>
 <div>
