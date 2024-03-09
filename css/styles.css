@@ -96,6 +96,7 @@ data-bs-theme="dark" {
   --bs-body-bg: var(--bs-dark);
   --bs-body-bg-rgb: #{to-rgb($dark)};
   --bs-tertiary-bg: #{$dark-600};
+}
 
 body {
   margin: 0;
