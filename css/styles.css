@@ -90,7 +90,7 @@
   }
 }
 
-[data-bs-theme="dark"] {
+data-bs-theme="dark" {
   --bs-body-color: var(--bs-white);
   --bs-body-color-rgb: #{to-rgb($white)};
   --bs-body-bg: var(--bs-dark);
