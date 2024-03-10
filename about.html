@@ -10,23 +10,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    </button>
-    <a class="navbar-brand" href="/">Sebas Contents</a>
-
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link" href="/">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/about">About us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/contents">Contenidos</a>
-  </li>
-</ul>
-</div>
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+                <div class="container px-5">
+                  <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">Sebas Contents</span></a>
+                  <span class="badge bg-secondary">Beta</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">About us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contents">Contenidos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+	  <div class="d-flex">
+        <div class="form-check form-switch ms-auto mt-3 me-3">
+          <label class="form-check-label ms-3" for="lightSwitch">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+              <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+            </svg>
+          </label>
+          <input class="form-check-input" type="checkbox" id="lightSwitch">
+        </div>
+	  </div>
 	  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
 	  <h1 class="display-4 fw-normal text-body-emphasis">Acerca De Esta Pagina</h1>
 <h2>pagina creada por Sebas</h2>     
@@ -69,51 +77,36 @@ Sugerencia/link caido
 </div>
 <div>
 </div>
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"></svg>
-      </a>
-      <p class="text-body-secondary">© 2020 - 2024 Sebas Contents, Inc</p>
-    </div>
 
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>Pagina</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary">Inicio</a></li>
-        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-body-secondary">About us</a></li>
-        <li class="nav-item mb-2"><a href="/subscripcion" class="nav-link p-0 text-body-secondary">Subscripcion</a></li>
-        <li class="nav-item mb-2"><a href="/error404" class="nav-link p-0 text-body-secondary">Inicia sesión o Crear una cuenta </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">...</a></li>
+<footer class="container-footer" id="footer-container" data-is-giftcards-footer-enabled="True">
+<div class="footer">
+<ul class="row footer-links">  
+</div>
+        <li class="footer-link">
+          <a class="text-footer-nav" href="/" target="_blank">Home</a>
+        </li>
+        <li class="footer-link">
+          <a class="text-footer-nav" href="/about" target="_blank">Acerca de la pagina</a>
+        </li>
+        <li class="footer-link">
+          <a class="text-footer-nav" href="/subscripcion" target="_blank">Subscripcion</a>
+        </li>
+        <li class="footer-link">
+          <a class="text-footer-nav" href="/error404" target="_blank">Inicia sesión o Crear una cuenta </a>
+        </li>
+        <li class="footer-link">
+          <a class="text-footer-nav" href="/contents" target="_blank">contents</a>
+        </li>
       </ul>
+ <div class="col-sm-6 col-md-3">
+</div>
+  <div class="col-sm-12">
     </div>
+    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Sebas contents Inc 2020-2024</div>
+                    </div>
+    </div>
+		  </footer>
 
-    <div class="col mb-3">
-      <h5>Contenidos</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="/ella_es_la_mejor" class="nav-link p-0 text-body-secondary">Ella Es La Mejor</a></li>
-            <li class="nav-item mb-2"><a href="/roblox" class="nav-link p-0 text-body-secondary">Roblox</a></li>
-        <li class="nav-item mb-2"><a href="/amv" class="nav-link p-0 text-body-secondary">Amv</a></li>
-	<li class="nav-item mb-2"><a href="/amvedit" class="nav-link p-0 text-body-secondary">Amv edit</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Posts</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Instagram</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Adelantos</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Contenidos promocionados</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sitios webs</a></li>
-        <li class="nav-item mb-2"><a href="/soundcloud" class="nav-link p-0 text-body-secondary">Musica</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">...</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">...</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">...</a></li>
-      </ul>
-    </div>
-  </footer>
+<script src="js/switch.js">
                                                                                                                                   </footer>
