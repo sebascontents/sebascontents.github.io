@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <!-- CUSTOM CSS -->
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/Like.css">
     <script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement(
@@ -24,6 +25,7 @@
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   </head>
 
             <!-- Navigation-->
@@ -100,8 +102,13 @@
   <div>
   </div>
 
-<button id="like-btn" onclick="toggleLike()">Like</button>
-<span id="like-count"></span>
+<div class="heart-btn">
+      <div class="content">
+        <span class="heart"></span>
+        <span class="text">Like</span>
+        <span class="numb"></span>
+      </div>
+</div>
 
 <!-- LikeBtn.com BEGIN -->
 <span class="likebtn-wrapper" data-theme="black" data-identifier="item_1" data-counter_zero_show="true"></span>
@@ -185,27 +192,13 @@
 </script>
 <script src="js/dropdown.js">
 </script>
-<script>
-const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
-const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
-</script>
-<script>
-  let data = {
-  "likes": 0
-}
-
-function toggleLike() {
-  let likeBtn = document.getElementById("like-btn");
-  let likeCount = document.getElementById("like-count");
-
-  if (likeBtn.innerHTML == "Like") {
-    likeBtn.innerHTML = "Dislike";
-    data.likes++;
-    likeCount.innerHTML = data.likes + " like(s)";
-  } else {
-    likeBtn.innerHTML = "Like";
-    data.likes--;
-    likeCount.innerHTML = data.likes + " like(s)";
-  }
-}
-</script>
+    <script>
+      $(document).ready(function(){
+        $('.content').click(function(){
+          $('.content').toggleClass("heart-active")
+          $('.text').toggleClass("heart-active")
+          $('.numb').toggleClass("heart-active")
+          $('.heart').toggleClass("heart-active")
+        });
+      });
+    </script>
