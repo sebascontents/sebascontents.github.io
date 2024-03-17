@@ -189,3 +189,23 @@
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
+<script>
+  let data = {
+  "likes": 0
+}
+
+function toggleLike() {
+  let likeBtn = document.getElementById("like-btn");
+  let likeCount = document.getElementById("like-count");
+
+  if (likeBtn.innerHTML == "Like") {
+    likeBtn.innerHTML = "Dislike";
+    data.likes++;
+    likeCount.innerHTML = data.likes + " like(s)";
+  } else {
+    likeBtn.innerHTML = "Like";
+    data.likes--;
+    likeCount.innerHTML = data.likes + " like(s)";
+  }
+}
+</script>
