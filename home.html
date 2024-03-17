@@ -103,24 +103,23 @@
 <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
 <!-- LikeBtn.com END -->
 
-<div class="btn-group">
-  <button type="button" class="btn btn-primary">Compartir en</button>
-  <button
-    type="button"
-    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-    data-mdb-dropdown-init
-    data-mdb-ripple-init
-    aria-expanded="false"
-  >
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Facebook</a></li>
-    <li><a class="dropdown-item" href="#">Twitter</a></li>
-    <li><a class="dropdown-item" href="#">Instragram</a></li>
-    <li><hr class="dropdown-divider" /></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
+<div class="dropdown me-5 d-inline">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            Compartir en
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button">Facebook</button></li>
+            <li>
+              <button class="dropdown-item" type="button">
+                X (Twitter)
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">
+                Instagram
+              </button>
+            </li>
+          </ul>
 </div>
   
   <hr class="my-5">
