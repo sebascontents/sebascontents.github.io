@@ -22,28 +22,11 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="scss/plyr.css" rel="stylesheet"/>
    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-   <script>
-      $(function() {
-         $("#includeHtml").load("footer.html");
-      });
-   </script>
   </head>
 <body>
-<!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-                <div class="container px-5">
-                  <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">Sebas Contents</span></a>
-                  <span class="badge bg-secondary">Beta</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about">About us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contents">Contenidos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+
+<!--#include virtual="/navbar.html" -->
+
     <div class="d-flex">
         <div class="form-check form-switch ms-auto mt-3 me-3">
           <label class="form-check-label ms-3" for="lightSwitch">
@@ -268,7 +251,6 @@
 </nav>
 
 <!--#include virtual="/footer.html" -->
-<div id="includeHtml"></div>
 
 </body>
 
