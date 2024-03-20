@@ -21,6 +21,12 @@
 <!-- CUSTOM CSS -->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="scss/plyr.css" rel="stylesheet"/>
+   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script>
+      $(function() {
+         $("#includeHtml").load("footer.html");
+      });
+   </script>
   </head>
 <body>
 <!-- Navigation-->
@@ -262,6 +268,7 @@
 </nav>
 
 <!--#include virtual="/footer.html" -->
+<div id="includeHtml"></div>
 
 </body>
 
