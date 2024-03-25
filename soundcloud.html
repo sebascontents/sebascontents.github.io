@@ -9,23 +9,9 @@
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    </button>
-    <a class="navbar-brand" href="/">Sebas Contents</a>
-
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link" href="/">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/about">About us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/contents">Contenidos</a>
-  </li>
-</ul>
-  </div>
+<!--#include virtual="/navbar.html" -->
+<include src="includes/navbar.html"></include>
+    
 
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h1 class="display-4 fw-normal text-body-emphasis">Musicas</h1>
@@ -35,39 +21,19 @@
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1235551306&color=%237f0f0d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/prodbydxrk" title="Dxrk ダーク" target="_blank" style="color: #cccccc; text-decoration: none;">Dxrk ダーク</a> · <a href="https://soundcloud.com/prodbydxrk/rave" title="RAVE" target="_blank" style="color: #cccccc; text-decoration: none;">RAVE</a></div>
 
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"></svg>
-      </a>
-      <p class="text-body-secondary">© 2020 - 2024 Sebas Contents, Inc</p>
-    </div>
-
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>Pagina</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-body-secondary">Acerca de la pagina</a></li>
-        <li class="nav-item mb-2"><a href="/subscripcion" class="nav-link p-0 text-body-secondary">Subscripcion</a></li>
-        <li class="nav-item mb-2"><a href="/error404" class="nav-link p-0 text-body-secondary">Inicia sesión o Crear una cuenta </a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">...</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Contenidos</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="/ella_es_la_mejor" class="nav-link p-0 text-body-secondary">Ella Es La Mejor</a></li>
-            <li class="nav-item mb-2"><a href="/roblox" class="nav-link p-0 text-body-secondary">Roblox</a></li>
-        <li class="nav-item mb-2"><a href="/error404" class="nav-link p-0 text-body-secondary">Tiktok</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Posts</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Instagram</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Adelantos</a></li>
-      </ul>
-    </div>
-  </footer>
+<!--#include virtual="/footer.html" -->
+<include src="includes/footer.html"></include>
+   <script>
+      let includes = document.getElementsByTagName('include');
+      for (var i = 0; i < includes.length; i++) {
+         let include = includes[i];
+         load_file(includes[i].attributes.src.value, function(text) {
+            include.insertAdjacentHTML('afterend', text);
+            include.remove();
+         });
+      }
+      function load_file(filename, callback) {
+         fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+              </script>
   {% endblock%}
