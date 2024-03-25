@@ -13,21 +13,9 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
   
-<!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-                <div class="container px-5">
-                  <a class="navbar-brand" href="/"><span class="fw-bolder text-primary">Sebas Contents</span></a>
-                  <span class="badge bg-secondary">Beta</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about">About us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contents">Contenidos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+<!--#include virtual="/navbar.html" -->
+<include src="includes/navbar.html"></include>
+  
     <div class="d-flex">
         <div class="form-check form-switch ms-auto mt-3 me-3">
           <label class="form-check-label ms-3" for="lightSwitch">
@@ -226,35 +214,21 @@
   </ul>
 </nav>
 
- <footer class="container-footer" id="footer-container" data-is-giftcards-footer-enabled="True">
-<div class="footer">
-<ul class="row footer-links">  
-</div>
-        <li class="footer-link">
-          <a class="text-footer-nav" href="/" target="_blank">Home</a>
-        </li>
-        <li class="footer-link">
-          <a class="text-footer-nav" href="/about" target="_blank">Acerca de la pagina</a>
-        </li>
-        <li class="footer-link">
-          <a class="text-footer-nav" href="/subscripcion" target="_blank">Subscripcion</a>
-        </li>
-        <li class="footer-link">
-          <a class="text-footer-nav" href="/error404" target="_blank">Inicia sesión o Crear una cuenta </a>
-        </li>
-        <li class="footer-link">
-          <a class="text-footer-nav" href="/contents" target="_blank">contents</a>
-        </li>
-      </ul>
- <div class="col-sm-6 col-md-3">
-</div>
-  <div class="col-sm-12">
-    </div>
-    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Sebas contents Inc 2020-2024</div>
-                    </div>
-    </div>
-  </footer> 
+<!--#include virtual="/footer.html" -->
+<include src="includes/footer.html"></include>
+   <script>
+      let includes = document.getElementsByTagName('include');
+      for (var i = 0; i < includes.length; i++) {
+         let include = includes[i];
+         load_file(includes[i].attributes.src.value, function(text) {
+            include.insertAdjacentHTML('afterend', text);
+            include.remove();
+         });
+      }
+      function load_file(filename, callback) {
+         fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+   </script> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
