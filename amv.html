@@ -55,20 +55,14 @@ AMV 🇦🇷
 </div>
   <div>
 <script>   
-import { UpdownButton } from '@lyket/react';
+import { Provider, UpdownButton } from "@lyket/react";
 
-export BlogPost = ({ title, content }) => {
-  return (
-    <div>
-      {title}
-      <UpdownButton
-        id="how-i-joined-the-raiders-of-the-lost-ark"
-        namespace="post"
-      />
-      {content}
-    </div>
-  );
-};
+<Provider apiKey="acc0dbccce8e557db5ebbe6d605aaa">
+  <UpdownButton
+    namespace="testing-react"
+    id="everybody-updown-now"
+  />
+</Provider>
 </script>
 <h4>
   Comentarios
