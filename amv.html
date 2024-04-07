@@ -44,18 +44,22 @@ AMV 🇦🇷
   <video src="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Videos%2F2024-01-11_1705006611554%20-%20Copiar.mp4?alt=media&token=74b1923f-ee81-4410-984a-dadb5926f5fa" poster="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Img%2Ffkizuv-screenshot780983%20(1).jpg?alt=media&token=f69f965d-d8e1-4b19-a82a-db65a318efa6" preload="metadata" controls></video>
 </div>
   <div>
-    <!-- with non-default template -->
-<div
-  data-lyket-type="updown"
-  data-lyket-id="my-third-post"
-  data-lyket-namespace="blog"
-  data-lyket-template="reddit"
-  data-lyket-color-background="rgb(0,0,255)"
-  data-lyket-color-text="text-white"
-  data-lyket-color-icon="white"
-  data-lyket-color-highlight="#ff00c3"
-  data-lyket-font-family="monospace"
- /></div>
+<script>   
+import { UpdownButton } from '@lyket/react';
+
+export BlogPost = ({ title, content }) => {
+  return (
+    <div>
+      {title}
+      <UpdownButton
+        id="how-i-joined-the-raiders-of-the-lost-ark"
+        namespace="post"
+      />
+      {content}
+    </div>
+  );
+};
+</script>
 <h4>
   Comentarios
   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
