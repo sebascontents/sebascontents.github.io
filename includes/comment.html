@@ -1,2 +1,7 @@
-BoxFile file = new BoxFile(api, "id");
-file.addComment("This file is pretty cool.");
+await client.comments.createComment({
+  message: message,
+  item: {
+    id: newComment.id!,
+    type: 'comment' as CreateCommentRequestBodyItemTypeField,
+  } satisfies CreateCommentRequestBodyItemField,
+} satisfies CreateCommentRequestBody);
