@@ -13,7 +13,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <!-- CUSTOM CSS -->
     <link href="css/styles.css" rel="stylesheet" />
-   </head>
+   <script>
+  var remark_config = {
+    host: 'https://sebascontents.github.io',
+    site_id: 'remark',
+  }
+</script>
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+  </head>
 <!--#include virtual="/navbar.html" -->
 <include src="includes/navbar.html"></include>
 
@@ -219,10 +226,3 @@ const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootst
 const collapseElementList = document.querySelectorAll('.collapse')
 const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
 </script>
-<script>
-  var remark_config = {
-    host: 'https://sebascontents.github.io',
-    site_id: 'remark',
-  }
-</script>
-<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
