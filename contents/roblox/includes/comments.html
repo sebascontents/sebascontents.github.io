@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caja de Comentarios Reutilizable</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .comentarios-container {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .comentario {
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <!-- Instancia de la caja de comentarios -->
+  <div id="comentarios1" class="comentarios-container"></div>
+  <!-- Puedes agregar más instancias de la caja de comentarios aquí -->
+</div>
+
+<script>
+  class CajaDeComentarios {
+    constructor(id) {
+      this.id = id;
+      this.comentarios = JSON.parse(localStorage.getItem(this.id)) || [];
+      this.contenedor = document.getElementById(this.id);
+      this.renderizarComentarios();
+    }
+
+    guardarComentarios() {
+      localStorage.setItem(this.id, JSON.stringify(this.comentarios));
+    }
+
+    agregarComentario(nombre, texto) {
+      this.comentarios.push({nombre, texto});
+      this.guardarComentarios();
+      this.renderizarComentarios();
+    }
+
+    renderizarComentarios() {
+      this.contenedor.innerHTML = ''; // Limpiar comentarios anteriores
+      this.comentarios.forEach(comentario => {
+        const div = document.createElement('div');
+        div.classList.add('comentario');
+        div.innerHTML = `<strong>${comentario.nombre}</strong><p>${comentario.texto}</p>`;
+        this.contenedor.appendChild(div);
+      });
+    }
+  }
+
+  // Crear una nueva instancia de la caja de comentarios
+  const comentarios1 = new CajaDeComentarios('comentarios1');
+
+  // Función para agregar comentarios desde la interfaz de usuario
+  function agregarComentarioDesdeUI(idContenedor, nombreUsuario, textoComentario) {
+    const cajaDeComentarios = new CajaDeComentarios(idContenedor);
+    cajaDeComentarios.agregarComentario(nombreUsuario, textoComentario);
+  }
+
+  // Ejemplo de cómo agregar un comentario
+  // agregarComentarioDesdeUI('comentarios1', 'Usuario', 'Este es un comentario.');
+</script>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
