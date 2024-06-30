@@ -181,3 +181,12 @@ data-target="#contact-modal">Send a message</button>
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
+<script>
+$("#contact-modal .btn-primary").click(function() {
+
+$('#send-message-btn').hide();
+
+$('#conf-alert').show;
+
+});
+</script>
