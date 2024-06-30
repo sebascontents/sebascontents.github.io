@@ -93,22 +93,7 @@
 <div class="modal-footer">
 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
 <div id="liveAlertPlaceholder"></div>
-<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
-<div id="liveAlertPlaceholder"></div>
-<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
-
-	
-</p>
-
-<div class="alert alert-success collapse" role="alert" id="conf-alert">
-
-<strong>Thank you!</strong> We will contact you soon!
-
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-
-<span aria-hidden="true">&times;</span>
-
-</button>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">Enviar reporte</button>
 </div>
 </div>
 </div>
@@ -176,8 +161,6 @@
 </script>
 <script src="js/switch.js">
 </script>
-<script src="https://sebascontents.github.io/js/button.js">
-</script>
 <script src="js/dropdown.js">
 </script>
 <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=acc0dbccce8e557db5ebbe6d605aaa" />
@@ -185,3 +168,24 @@
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
+<script>
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Nice, you triggered this alert message!', 'success')
+  })
+}
+	</script>
