@@ -65,11 +65,11 @@ Nombre
 </svg>
 Correo electrónico
 </p>    
-    </label>
     <input type="email" name="email" class="form-control" id="validationTooltip01" required>
 <div class="invalid-feedback">
       Campo vacio.
 </div>
+</label>
   <div class="col-md-3">
     <p><label for="validationCustom04" class="form-label">Seleccionar un problema</label></p>
     <select class="form-select" id="validationCustom04" required>
@@ -82,16 +82,17 @@ Correo electrónico
     <div class="invalid-feedback">
       por favor seleccionar una opción.
     </div>
+</label>
 <form class="row g-3 needs-validation" novalidate>
   <div class="col-md-4 position-relative">
     <p><label for="validationTextarea" class="form-label">
 Describir el problema
     </p>
-    </label>
     <textarea class="form-control" id="validationTextarea" required></textarea>
     <div class="invalid-feedback">
       Campo vacio.
-    </div>	  	
+    </div>
+  </label>
 <div class="col-12">
     <button class="btn btn-primary" type="submit">Enviar</button>
   </div>
