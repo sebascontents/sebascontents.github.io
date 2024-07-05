@@ -588,3 +588,8 @@ Home
 	const toastElList = document.querySelectorAll('.toast')
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))
 </script>
+<script>
+var myToast = document.querySelector('.toast');
+var toast = new bootstrap.Toast(myToast);
+toast.show();
+</script>
