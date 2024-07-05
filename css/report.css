@@ -1,16 +1,16 @@
-.btn-Report {
+.btn-report {
   color: #fff;
   background-color: #DC3545;
   border-color: #DC3545;
 } 
 
-.btn-Report:hover, .btn-Report:active {
+.btn-report:hover, .btn-report:active {
   color: #fff;
   background-color: #be1727;
   border-color: #be1727;
 }
 
-.btn-Report.focus, .btn-Report:focus {
+.btn-report.focus, .btn-report:focus {
   color: #fff;
   background-color: #be1727;
   border-color: #be1727;
