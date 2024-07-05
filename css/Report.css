@@ -1,0 +1,18 @@
+.btn-Report {
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #DC3545;
+} 
+
+.btn-Report:hover, .btn-Report:active {
+  color: #fff;
+  background-color: #be1727;
+  border-color: #be1727;
+}
+
+.btn-Report.focus, .btn-Report:focus {
+  color: #fff;
+  background-color: #be1727;
+  border-color: #be1727;
+  box-shadow: 0 0 0 0.2rem rgb(220 53 69 / 50%);
+}
