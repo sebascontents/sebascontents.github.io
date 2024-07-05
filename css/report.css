@@ -1,4 +1,21 @@
+.btn-button {
+  color: #fff;
+  background-color: #47484D;
+  border-color: #47484D;
+} 
 
+.btn-button:hover, .btn-button:active {
+  color: #fff;
+  background-color: #292a2f;
+  border-color: #292a2f;
+}
+
+.btn-button.focus, .btn-button:focus {
+  color: #fff;
+  background-color: #292a2f;
+  border-color: #292a2f;
+  box-shadow: 0 0 0 0.2rem rgb(71 72 77 / 50%);
+}
 
 .btn-send-report {
   color: #fff;
