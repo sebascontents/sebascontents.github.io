@@ -1,3 +1,24 @@
+
+
+.btn-send-report {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+} 
+
+.btn-send-report:hover, .btn-send-report:active {
+  color: #fff;
+  background-color: #006936;
+  border-color: #006936;
+}
+
+.btn-send-report.focus, .btn-send-report:focus {
+  color: #fff;
+  background-color: #006936;
+  border-color: #006936;
+  box-shadow: 0 0 0 0.2rem rgb(25 135 84 / 50%);
+}
+
 .btn-report {
   color: #fff;
   background-color: #DC3545;
