@@ -16,13 +16,8 @@
   rel="stylesheet" />
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <!-- CUSTOM CSS -->
-  <link href="https://monoschinos2.com/public/css/style.css?v=4.51" rel="stylesheet">
+  <link href="https://sebascontents.github.io/css/styles.css" rel="stylesheet">
 <link rel="stylesheet" href="iframe.css">
-<script src="https://latanime.org/public/js/lozad.min.js?v=2.1"></script>  
-<script src="https://latanime.org/public/js/app.js?v=2.7"></script>  
-<script src="https://latanime.org/public/js/index.js?v=2.7"></script> 
-<script src="https://latanime.org/public/js/guest.js?v=2.1"></script>  
-<script src="https://latanime.org/public/js/jquery-3.6.0.min.js"></script>  
   </head>
 <body>
 
@@ -166,6 +161,19 @@
 <!--#include virtual="/navbar.html" -->
 <include src="https://sebascontents.github.io/includes/footer.html"></include>
 
+<script>
+      let includes = document.getElementsByTagName('include');
+      for (var i = 0; i < includes.length; i++) {
+         let include = includes[i];
+         load_file(includes[i].attributes.src.value, function(text) {
+            include.insertAdjacentHTML('afterend', text);
+            include.remove();
+         });
+      }
+      function load_file(filename, callback) {
+         fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+   </script>
 
 <script src="https://monoschinos2.com/public/js/lazyload.min.js?v=4.51"></script>
 <script src="https://monoschinos2.com/public/js/bootstrap.bundle.min.js?v=4.51"></script>
