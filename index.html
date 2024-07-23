@@ -203,15 +203,23 @@
                 </div>
             </section>
         </main>
-        <!-- Footer-->
-<footer class="py-3 my-4">
-<ul class="nav justify-content-center border-bottom text-white bg-dark pb-3 mb-3">
-<li class="nav-item"><a href="/error404" class="nav-link px-2 text-white">Política de Privacidad</a></li>
-<li class="nav-item"><a href="/error404" class="nav-link px-2 text-white">Terminos y Condiciones</a></li>
-<li class="nav-item"><a href="/about" class="nav-link px-2 text-white">Acerca de la pagina</a></li>
-                    </ul>
-<p class="text-center text-white">© 2024 Sebas Contents, Inc</p>
-        </footer>                               
+
+<!--#include virtual="/footer.html" -->
+<include src="https://sebascontents.github.io/includes/footer.html"></include>
+   <script>
+      let includes = document.getElementsByTagName('include');
+      for (var i = 0; i < includes.length; i++) {
+         let include = includes[i];
+         load_file(includes[i].attributes.src.value, function(text) {
+            include.insertAdjacentHTML('afterend', text);
+            include.remove();
+         });
+      }
+      function load_file(filename, callback) {
+         fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+   </script>
+                                        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   $('.carousel').carousel();
