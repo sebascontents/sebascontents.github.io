@@ -21,37 +21,26 @@
   <link href="https://sebascontents.github.io/css/index.css" rel="stylesheet">
         
     </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar bg py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Sebas Contents</span></a>
-                </div>
-            </nav>
-            <!-- Header-->
-            <header class="py-5">
-            <div class="d-flex justify-content-center my-2">
+    <body>
+                  
+<!--#include virtual="/footer.html" -->
+<include src="includes/navbar_index.html"></include>
+
+            <div class="d-flex justify-content-center">
 </div>
                 <div class="container mt-3">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">¡Bienvenido, a Sebas Contents!</span></h1>
                                 <p class="lead">Este sitio se subirán todo los contenidos de SebasYT, Animestudioarg y otros contenidos más disfruten del contenido exclusivo.</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/home">Inicio</a>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mt-3">
+                                    <a class="btn btn-primary btn-lg px-5 py-3 fs-6 fw-bolder" href="/home">Inicio</a>
                                     <a class="btn btn-primary btn-lg px-5 py-3 fs-6 fw-bolder" href="/Upcoming_features">Proximas funciones</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-7">
+                        <div class="col">
                             <!-- Header profile picture-->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                            <div class="d-flex justify-content-center">
                                 <div class="profile bg-gradient-primary-to-secondary">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
                                     <img class="profile-img" src="assets/profile.png" alt="..." />
                                     <div class="dots-1">
                                         <!-- SVG Dots-->
@@ -172,11 +161,10 @@
                 </div>
             </header>
             <!-- About Section-->
-            <section class="py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-xxl-8">
-                            <div class="text-center my-5">
+            <section>                
+                    <div class="d-flex justify-content-center">
+<div class="container mt-3">
+                        <div class="col">
                                 <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Acerca de Mi</span></h2>
                                 <p class="lead fw-light mb-4">Mi nombre es Sebas y esta es mi primera vez que decido independizarme de las redes sociales. Suelo hacer contenidos de animes(amv,edit,amv edit) y tambien otros contenidos</p>
                                 <p class="text-muted">Si me quedes contactar o seguirme en mi redes sociales estas son 👇</p>
@@ -194,10 +182,9 @@
                     </div>
                 </div>
             </section>
-        </main>
-
+</div>
 <!--#include virtual="/footer.html" -->
-<include src="https://sebascontents.github.io/includes/footer_index.html"></include>
+<include src="includes/footer_index.html"></include>
    <script>
       let includes = document.getElementsByTagName('include');
       for (var i = 0; i < includes.length; i++) {
