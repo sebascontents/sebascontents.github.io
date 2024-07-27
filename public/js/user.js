@@ -1,4 +1,3 @@
-//Silencio es oro
 $( document ).ready(function() {
 var current_url = location.origin + location.pathname;
 var token = $("meta[name='csrf-token']").attr("content");
