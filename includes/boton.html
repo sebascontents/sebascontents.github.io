@@ -1,0 +1,50 @@
+<!-- Custom CSS -->
+    <style>
+        .float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .btn-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            text-align: center;
+            padding: 0;
+            font-size: 24px;
+            line-height: 56px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón Flotante Desplegable -->
+    <div class="dropdown float-button">
+        <button class="btn btn-primary  btn-circle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            +
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<li><a class="dropdown-item" href="https://sebascontents.github.io/Upcoming_features">Proximas Funciones</a></li>
+<li><a class="dropdown-item" href="https://sebascontents.github.io">Notificaciónes</a></li>
+            <li><a class="dropdown-item" href="https://sebascontents.github.io">Noticias</a></li>
+            <li><a class="dropdown-item" href="https://sebascontents.github.io/advances">Adelantos</a></li>
+            <li><a class="dropdown-item" href="https://sebascontents.github.io/community">Comunidad</a></li>
+<li><a class="dropdown-item" href="https://sebascontents.github.io/about">Acerca de la pagina</a></li>
+<li><a class="dropdown-item" href="https://sebascontents.github.io">Contenidos +18</a></li>
+<li><a class="dropdown-item" href="https://github.com/sebascontents/sebascontents.github.io">Api de la pagina</a></li>
+        </ul>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
