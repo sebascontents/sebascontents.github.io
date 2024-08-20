@@ -11,11 +11,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-    <!-- Video JS-->
-<link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
-  rel="stylesheet" />
-<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-    <!-- CUSTOM CSS -->
+    <!-- Plyr-->
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+	<!-- CUSTOM CSS -->
   <link href="https://latanime.org/public/css/style.css?v=3.1" rel="stylesheet">
 <link rel="stylesheet" href="iframe.css">
 <script src="https://latanime.org/public/js/lozad.min.js?v=2.1"></script>  
@@ -32,8 +30,7 @@
 <div class="row">  
 <div class="col-md-12 col-lg-8 seiya">
 <h2 class="mojon4 my-3">Roblox - Pésima Partida De Prisionero En Prisión Life</h2>
-<div class="ratio ratio-16x9">
-<iframe src="https://www.youtube-nocookie.com/embed/NFF2SYkNwnc?si=E_ufd9GjrA37uE2A" title="YouTube video" allowfullscreen></iframe>
+<div id="player" data-plyr-provider="youtube" data-plyr-embed-id="NFF2SYkNwnc"></div>
 </div>
 <div class="reproductor"> 
 </div>
@@ -161,6 +158,11 @@
 <script src="js/switch.js">
 </script>
 <script src="js/dropdown.js">
+</script>
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<script>
+  const player = new Plyr('#player');
 </script>
 <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=acc0dbccce8e557db5ebbe6d605aaa" />
 <script>
