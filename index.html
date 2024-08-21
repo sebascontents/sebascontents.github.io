@@ -209,6 +209,9 @@
 </script>
 <script src="js/dropdown.js">
 </script>
+<script type="text/javascript" language="Javascript">
+document.oncontextmenu = function(){return false}
+</script>                                        
 <script>
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
