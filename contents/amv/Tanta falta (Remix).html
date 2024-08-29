@@ -10,10 +10,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-    <!-- Video JS-->
-<link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
-  rel="stylesheet" />
-<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <!-- Plyr -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
     <!-- CUSTOM CSS -->
     <link href="https://sebascontents.github.io/css/styles.css" rel="stylesheet">
 <link rel="stylesheet" href="iframe.css">
@@ -27,7 +25,7 @@
 <div> 
 <h1>Tanta falta (Remix) amv</h1>
 <div>
-<video id="my-video" class="video-js vjs-16-9" controls preload="auto" controlsList="nodownload" width="700px" height="350px" poster="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Img%2Fomvaxn-screenshot294076.jpg?alt=media&token=ed369101-0673-4379-b20a-fa64662353d0"> <source src="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Videos%2F2024-03-30_1711853765068.mp4?alt=media&token=d5042889-d515-483f-afb4-b55d4820a702" type="video/mp4"/> data-setup="{}" tabindex="-1"> <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank" >supports HTML5 video</a > </p> </video> <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<video src="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Videos%2F2024-03-30_1711853765068.mp4?alt=media&token=d5042889-d515-483f-afb4-b55d4820a702"   width="100%" poster="https://firebasestorage.googleapis.com/v0/b/sebas-contents.appspot.com/o/Img%2Fomvaxn-screenshot294076.jpg?alt=media&token=ed369101-0673-4379-b20a-fa64662353d0" id="player" controls data-plyr-config='{ "title": "Example Title" }'></video>
 </div>
 </div>
 <div
@@ -84,4 +82,9 @@
 <script>
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
+</script>
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<script>
+  const player = new Plyr('#player');
 </script>
