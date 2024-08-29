@@ -13,6 +13,8 @@
     <!-- CUSTOM CSS -->
     <link href="css/styles.css" rel="stylesheet" />
   </head>
+
+<body class="d-flex flex-column vh-100">
 <!--#include virtual="/navbar.html" -->
 <include src="https://sebascontents.github.io/includes/navbar.html"></include>
 <div class="container">
@@ -54,3 +56,5 @@
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
+</body>
+</html>
