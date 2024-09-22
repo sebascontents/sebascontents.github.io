@@ -17,7 +17,7 @@
   </head>
   
 <!--#include virtual="/navbar.html" -->
-<include src="includes/navbar.html"></include>
+<include src="https://sebascontents.github/includes/navbar.html"></include>
   
     <div class="d-flex">
         <div class="form-check form-switch ms-auto mt-3 me-3">
@@ -36,6 +36,64 @@
 <h1>Lala S1 Cap 1</h1>
 
 <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="57iVPp5KYys"></div>
+<div class="reproductor"> 
+</div>
+<div class="controles mt-3">
+
+</div>
+
+<div class="d-flex justify-content-center align-items-center mt-5 gap-3 flex-wrap">
+<a href="https://sebascontents.github.io/contents/amv%20edit"> <button class="btn btn_verahora btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+</svg> Lista</button></a>
+</div>
+
+
+
+
+
+<div class="text-left mt-5">
+<button type="button" class="btn btn-danger border-0 p-2 rounded-2" data-bs-toggle="modal" data-bs-target="#reportModal">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
+</svg> Reportar video
+</button>
+
+
+
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="exampleModalLabel">Reportar video</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<select name="motivo" class="form-select mb-3">
+<option value="0">El Player no funciona</option>
+<option value="1">Problema con subtitulos</option>
+<option value="2">Problema con audio</option>
+<option value="3">Video incorrecto o repetido</option>
+<option value="4">Video caído</option>
+</select>
+<label class="w-100 form-label text-start">Deja una explicación (opcional y recuerda que tener una cuenta te notificara cuando sea solucionado)</label>
+<textarea class="form-control" maxlength="120" rows="5" name="explicacion"></textarea>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+<button onclick="alert('Tu reporte ha sido enviado!! ten paciencia, sera reparado.');" class="btn btn-primary" data-bs-dismiss="modal">
+  Enviar reporte
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+  
+  </div>
+
+<div>
+
   
 </div>
 </div>
@@ -72,7 +130,7 @@
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <!--#include virtual="/footer.html" -->
-<include src="includes/footer.html"></include>
+<include src="https://sebascontents.github/includes/footer.html"></include>
    <script>
       let includes = document.getElementsByTagName('include');
       for (var i = 0; i < includes.length; i++) {
