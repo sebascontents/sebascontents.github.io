@@ -15,6 +15,8 @@
     <link href="https://sebascontents.github.io/css/styles.css" rel="stylesheet" />
 <link rel="stylesheet" href="iframe.css">
   </head>
+
+<body class="d-flex flex-column vh-100">
   
 <!--#include virtual="/navbar.html" -->
 <include src="https://sebascontents.github.io/includes/navbar.html"></include>
@@ -160,3 +162,5 @@ if (hash.length > 8) {
 const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
+</body>
+</html>
