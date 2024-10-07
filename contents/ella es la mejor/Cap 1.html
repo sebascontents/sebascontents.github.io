@@ -39,44 +39,32 @@
 </div>
 <div class="controles mt-3">
 
-
-<div>
-  <a href="https://sebascontents.github.io/contents/ella%20es%20la%20mejor">
-    <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
-</svg> Lista</span>
-  </a>
-  </div>
-
-  <div>
-    <a href="https://sebascontents.github.io/contents/ella%20es%20la%20mejor/Cap%202">
-      
-      <span>Siguiente <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
-</svg></span>
-    </a>
-    </div>
-
-
-
 </div>
 
-<div class="capresto my-3">
+<div class="d-flex justify-content-center align-items-center mt-5 gap-3 flex-wrap">
+<a href="https://sebascontents.github.io/contents/ella%20es%20la%20mejor"> <button class="btn btn_verahora btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+</svg> Lista</button></a>
+</div>
 
-<!-- Reportar -->
- <div class="text-left my-4">
-<button type="button" class="btn btn-danger border-0 p-2 rounded-2 text-light bg-danger" data-bs-toggle="modal" data-bs-target="#reportModal">
+
+<section>
+
+
+<div class="text-left mt-5">
+<button type="button" class="btn btn-danger border-0 p-2 rounded-2" data-bs-toggle="modal" data-bs-target="#reportModal">
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
-  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
-</svg> Reportar episodio
+<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
+</svg> Reportar video
 </button>
 
 
-<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h1 class="modal-title fs-5" id="exampleModalLabel">Reportar episodio</h1>
+<h1 class="modal-title fs-5" id="exampleModalLabel">Reportar video</h1>
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
@@ -84,7 +72,7 @@
 <option value="0">El Player no funciona</option>
 <option value="1">Problema con subtitulos</option>
 <option value="2">Problema con audio</option>
-<option value="3">Episodio incorrecto o repetido</option>
+<option value="3">Video incorrecto o repetido</option>
 <option value="4">Video caído</option>
 </select>
 <label class="w-100 form-label text-start">Deja una explicación (opcional y recuerda que tener una cuenta te notificara cuando sea solucionado)</label>
@@ -92,28 +80,17 @@
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
-<button type="button" class="sdreport btn btn-primary">Enviar reporte</button>
+<button onclick="alert('Tu reporte ha sido enviado!! ten paciencia, sera reparado.');" class="btn btn-primary" data-bs-dismiss="modal">
+  Enviar reporte
+</button>
 </div>
 </div>
 </div>
 </div>
-</div> 
-
-<!-- Fin Reportar -->
-
-
-              <div class="d-none d-lg-block my-4">
-<script async="" type="text/javascript" src="https://ad.kubicadza.xyz/deliver/js/338f65037c0b566"></script><script src="//ad.kubicadza.xyz/deliver/token/338f65037c0b566?loc=https%3A%2F%2Flatanime.org%2Fver%2Fthe-misfit-of-demon-king-academy-s2-latino-episodio-1&amp;vid=0dc5314a-41ea-4731-b306-dc26d4ea4181&amp;ref=https%3A%2F%2Flatanime.org%2Fanime%2Fthe-misfit-of-demon-king-academy-s2-latino" async="" id="0dc5314a-41ea-4731-b306-dc26d4ea4181"></script><div id="0dc5314a-41ea-4731-b306-dc26d4ea4181"><a target="_blank" rel="nofollow" href="https://ad.kubicadza.xyz/deliver/click/338f65037c0b566/aa038b49955cdd0?uuid=6b639959-ba131906-667f12c3-9e24-9db00e71&amp;vid=0dc5314a-41ea-4731-b306-dc26d4ea4181&amp;token=338f65037c0b566">
-	<img width="728" height="90" border="0" title="" alt="" src="https://ad.kubicadza.xyz/images/delivery/47f8bc9264ec5ea9e688.png">
-</a></div>
-    </div>
-              
-            
-
-  
-  </div>
+</div>
 
 <div>
+
 
   <div
   data-lyket-type="updown"
