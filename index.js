@@ -42,34 +42,53 @@ app.post('/api/favoritos', async (req, res) => {
     }
 });
 
-// --- RUTA: LOGIN ---
+// --- RUTA: LOGIN MEJORADA ---
 app.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;
     try {
-        const user = await Usuario.findOne({ email, password });
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.status(400).json({ message: "Faltan datos" });
+        }
+
+        const user = await Usuario.findOne({ email: email.toLowerCase(), password: password });
+        
         if (user) {
             res.status(200).json({ 
                 usuario: user.usuario, 
                 email: user.email, 
-                favoritos: user.favoritos 
+                favoritos: user.favoritos || [] 
             });
         } else {
             res.status(401).json({ message: "Credenciales incorrectas" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Error en el servidor" });
+        console.error("Error en Login:", error);
+        res.status(500).json({ error: "Error interno del servidor", detalle: error.message });
     }
 });
 
-// --- RUTA: REGISTRO ---
+// --- RUTA: REGISTRO MEJORADA ---
 app.post('/api/register', async (req, res) => {
-    const { email, usuario, password } = req.body;
     try {
-        const nuevoUser = new Usuario({ email, usuario, password });
+        const { email, usuario, password } = req.body;
+        
+        // Verificamos si ya existe para evitar el error de MongoDB
+        const existe = await Usuario.findOne({ email: email.toLowerCase() });
+        if (existe) {
+            return res.status(400).json({ message: "El correo ya está registrado" });
+        }
+
+        const nuevoUser = new Usuario({ 
+            email: email.toLowerCase(), 
+            usuario, 
+            password 
+        });
+        
         await nuevoUser.save();
-        res.status(201).json({ message: "Usuario creado" });
-    } catch (err) {
-        res.status(400).json({ message: "El usuario ya existe o error en datos" });
+        res.status(201).json({ message: "Usuario creado con éxito" });
+    } catch (error) {
+        console.error("Error en Registro:", error);
+        res.status(500).json({ error: "Error interno del servidor", detalle: error.message });
     }
 });
 
