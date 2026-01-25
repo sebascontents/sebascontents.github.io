@@ -42,20 +42,6 @@ app.post('/api/favoritos', async (req, res) => {
     }
 });
 
-// --- RUTA PARA OBTENER FAVORITOS DE UN USUARIO ---
-app.get('/api/favoritos/:email', async (req, res) => {
-    try {
-        const user = await Usuario.findOne({ email: req.params.email });
-        if (user) {
-            res.status(200).json({ favoritos: user.favoritos });
-        } else {
-            res.status(404).json({ message: "Usuario no encontrado" });
-        }
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
 // --- RUTA: LOGIN ---
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
@@ -91,3 +77,24 @@ app.get('/', (req, res) => res.send("Servidor con Base de Datos Activa 🚀"));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, '0.0.0.0', () => console.log(`Servidor en puerto ${PORT}`));
+
+// --- RUTA PARA OBTENER FAVORITOS DE UN USUARIO ---
+// Esta es la ruta que te está dando el error "Cannot GET"
+app.get('/api/favoritos/:email', async (req, res) => {
+    try {
+        const { email } = req.params;
+        console.log("Buscando favoritos para:", email);
+
+        const user = await Usuario.findOne({ email: email });
+        
+        if (user) {
+            res.status(200).json({ favoritos: user.favoritos || [] });
+        } else {
+            // Si el usuario no existe en MongoDB aún
+            res.status(404).json({ message: "Usuario no encontrado en la base de datos" });
+        }
+    } catch (error) {
+        console.error("Error en servidor:", error);
+        res.status(500).json({ error: "Error interno del servidor" });
+    }
+});
