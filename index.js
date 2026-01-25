@@ -1,73 +1,79 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Base de datos temporal
-let usuariosDB = [];
+// --- CONEXIÓN A MONGODB ---
+// RECUERDA: Cambia 'TU_CONTRASEÑA' por la clave real de tu usuario de MongoDB
+const MONGO_URI = "mongodb+srv://sebastiandemarco2019_db_user:DzzeZ99FABzaFaD9@cluster0.vfksv7p.mongodb.net/video_app?retryWrites=true&w=majority";
 
-// Ruta de prueba
-app.get('/', (req, res) => {
-    res.send("Servidor funcionando correctamente 🚀");
-});
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("Conectado a MongoDB Atlas ✅"))
+  .catch(err => console.error("Error al conectar a MongoDB:", err));
 
-// --- RUTA PARA GUARDAR/SINCRONIZAR FAVORITOS ---
-app.post('/api/favoritos', (req, res) => {
+// --- MODELO DE USUARIO ---
+const Usuario = mongoose.model('Usuario', new mongoose.Schema({
+    email: { type: String, unique: true, required: true },
+    usuario: String,
+    password: { type: String, required: true },
+    favoritos: { type: Array, default: [] }
+}));
+
+// --- RUTA: GUARDAR FAVORITOS ---
+app.post('/api/favoritos', async (req, res) => {
     const { email, pelicula } = req.body;
-    console.log("Recibida petición de favoritos para:", email);
-
-    // Buscamos al usuario en la lista
-    let usuario = usuariosDB.find(u => u.email === email);
-
-    // Si el usuario no existe (porque el servidor se reinició), lo creamos al vuelo
-    if (!usuario) {
-        usuario = { email: email, favoritos: [] };
-        usuariosDB.push(usuario);
+    try {
+        const user = await Usuario.findOne({ email });
+        if (user) {
+            const existe = user.favoritos.find(f => f.id === pelicula.id);
+            if (!existe) {
+                user.favoritos.push(pelicula);
+                await user.save();
+            }
+            res.status(200).json({ message: "Sincronizado", favoritos: user.favoritos });
+        } else {
+            res.status(404).json({ message: "Usuario no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-
-    // Evitamos duplicados
-    const yaExiste = usuario.favoritos.some(f => f.id === pelicula.id);
-    if (!yaExiste) {
-        usuario.favoritos.push(pelicula);
-        console.log("Película guardada:", pelicula.titulo);
-    }
-
-    res.status(200).json({ 
-        message: "Sincronizado con éxito", 
-        favoritos: usuario.favoritos 
-    });
 });
 
-// --- RUTA DE LOGIN (ACTUALIZADA) ---
-app.post('/api/login', (req, res) => {
+// --- RUTA: LOGIN ---
+app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
-    const usuarioEncontrado = usuariosDB.find(u => u.email === email && u.password === password);
-
-    if (usuarioEncontrado) {
-        res.status(200).json({ 
-            message: "Login correcto", 
-            usuario: usuarioEncontrado.usuario,
-            email: usuarioEncontrado.email,
-            favoritos: usuarioEncontrado.favoritos || [] 
-        });
-    } else {
-        res.status(401).json({ message: "Correo o contraseña incorrectos" });
+    try {
+        const user = await Usuario.findOne({ email, password });
+        if (user) {
+            res.status(200).json({ 
+                usuario: user.usuario, 
+                email: user.email, 
+                favoritos: user.favoritos 
+            });
+        } else {
+            res.status(401).json({ message: "Credenciales incorrectas" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error en el servidor" });
     }
 });
 
-// --- RUTA DE REGISTRO ---
-app.post('/api/register', (req, res) => {
+// --- RUTA: REGISTRO ---
+app.post('/api/register', async (req, res) => {
     const { email, usuario, password } = req.body;
-    const existe = usuariosDB.find(u => u.email === email);
-    if (existe) return res.status(400).json({ message: "El usuario ya existe" });
-    
-    usuariosDB.push({ email, usuario, password, favoritos: [] });
-    res.status(201).json({ message: "Usuario creado con éxito" });
+    try {
+        const nuevoUser = new Usuario({ email, usuario, password });
+        await nuevoUser.save();
+        res.status(201).json({ message: "Usuario creado" });
+    } catch (err) {
+        res.status(400).json({ message: "El usuario ya existe o error en datos" });
+    }
 });
+
+app.get('/', (req, res) => res.send("Servidor con Base de Datos Activa 🚀"));
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
-});
+app.listen(PORT, '0.0.0.0', () => console.log(`Servidor en puerto ${PORT}`));
