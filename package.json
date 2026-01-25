@@ -1,7 +1,7 @@
 {
-  "name": "sebas-backend",
+  "name": "backend-video",
   "version": "1.0.0",
-  "description": "",
+  "description": "Servidor para video",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
