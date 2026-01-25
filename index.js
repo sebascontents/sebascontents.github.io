@@ -42,6 +42,20 @@ app.post('/api/favoritos', async (req, res) => {
     }
 });
 
+// --- RUTA PARA OBTENER FAVORITOS DE UN USUARIO ---
+app.get('/api/favoritos/:email', async (req, res) => {
+    try {
+        const user = await Usuario.findOne({ email: req.params.email });
+        if (user) {
+            res.status(200).json({ favoritos: user.favoritos });
+        } else {
+            res.status(404).json({ message: "Usuario no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // --- RUTA: LOGIN ---
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
