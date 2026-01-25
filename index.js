@@ -2,16 +2,17 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Borra el cors anterior y pon este:
-app.use(cors({
-  origin: "http://localhost:5173", // La URL de tu React
-  methods: ["GET", "POST"],
-  credentials: true
-}));
+// Configuración de CORS flexible
+app.use(cors()); 
 app.use(express.json());
 
-// Base de datos temporal
+// Base de datos temporal (Se borra al reiniciar el servidor)
 const usuariosDB = [];
+
+// Ruta de prueba para verificar que el servidor vive
+app.get('/', (req, res) => {
+    res.send("Servidor funcionando correctamente 🚀");
+});
 
 // --- 1. RUTA DE REGISTRO ---
 app.post('/api/register', (req, res) => {
@@ -21,15 +22,13 @@ app.post('/api/register', (req, res) => {
         return res.status(400).json({ message: "El usuario ya existe" });
     }
     usuariosDB.push({ email, usuario, password });
-    console.log("Usuarios en DB:", usuariosDB);
+    console.log("Nuevo usuario:", usuario);
     res.status(201).json({ message: "Usuario creado con éxito" });
 });
 
-// --- 2. RUTA DE LOGIN --- (Debe ir antes del listen)
+// --- 2. RUTA DE LOGIN ---
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
-    console.log("Intento de login:", email);
-    
     const usuarioEncontrado = usuariosDB.find(u => u.email === email && u.password === password);
 
     if (usuarioEncontrado) {
@@ -42,7 +41,8 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+// Usar el puerto de Koyeb o 8080 por defecto
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
