@@ -34,7 +34,9 @@ app.post('/api/login', (req, res) => {
     if (usuarioEncontrado) {
         res.status(200).json({ 
             message: "Login correcto", 
-            usuario: usuarioEncontrado.usuario 
+            usuario: usuarioEncontrado.usuario
+            email: usuarioEncontrado.email, // <--- Enviamos el email
+            favoritos: usuarioEncontrado.favoritos || []
         });
     } else {
         res.status(401).json({ message: "Correo o contraseña incorrectos" });
