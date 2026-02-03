@@ -105,7 +105,7 @@ app.post('/api/register', async (req, res) => {
 app.get('/', (req, res) => res.send("Servidor con Base de Datos Activa 🚀"));
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, '0.0.0.0', () => console.log(`Servidor en puerto ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
 
 // --- RUTA PARA OBTENER FAVORITOS DE UN USUARIO ---
 // Esta es la ruta que te está dando el error "Cannot GET"
