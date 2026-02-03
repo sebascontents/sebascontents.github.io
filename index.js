@@ -10,9 +10,19 @@ app.use(express.json());
 // RECUERDA: Cambia 'TU_CONTRASEÑA' por la clave real de tu usuario de MongoDB
 const MONGO_URI = "mongodb+srv://sebastiandemarco2019_db_user:DzzeZ99FABzaFaD9@cluster0.vfksv7p.mongodb.net/video_app?retryWrites=true&w=majority";
 
-mongoose.connect(MONGO_URI)
+mongoose.connect(MONGO_URI, {
+    serverSelectionTimeoutMS: 5000 // Si en 5 segundos no conecta, avisa
+})
   .then(() => console.log("Conectado a MongoDB Atlas ✅"))
-  .catch(err => console.error("Error al conectar a MongoDB:", err));
+  .catch(err => {
+    if (err.message.includes("ETIMEDOUT")) {
+        console.error("❌ ERROR: Tiempo de espera agotado. Probablemente tu Firewall o IP están bloqueando el acceso.");
+    } else if (err.message.includes("Authentication failed")) {
+        console.error("❌ ERROR: Usuario o Contraseña incorrectos en la base de datos.");
+    } else {
+        console.error("❌ ERROR DE CONEXIÓN:", err.message);
+    }
+  });
 
 // --- MODELO DE USUARIO ---
 const Usuario = mongoose.model('Usuario', new mongoose.Schema({
