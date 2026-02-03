@@ -1,13 +1,16 @@
+require('dotenv').config(); // IMPORTANTE: Carga la clave desde el archivo .env
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+
 const app = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// --- CONEXIÓN A MONGODB ---
-const MONGO_URI = "mongodb+srv://sebastiandemarco2019_db_user:DzzeZ99FABzaFaD9@cluster0.vfksv7p.mongodb.net/video_app?retryWrites=true&w=majority";
+// --- CONEXIÓN A MONGODB (Usando variable de entorno) ---
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 5000 
@@ -23,10 +26,10 @@ const Usuario = mongoose.model('Usuario', new mongoose.Schema({
     favoritos: { type: Array, default: [] }
 }));
 
-// --- RUTAS (TODAS ANTES DEL LISTEN) ---
+// --- RUTAS ---
 
 app.get('/', (req, res) => {
-    res.send("Servidor LOCAL Activo y Funcionando 🚀");
+    res.send("Servidor Activo y Funcionando 🚀");
 });
 
 app.post('/api/register', async (req, res) => {
@@ -57,11 +60,10 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// ESTA RUTA ESTABA MAL UBICADA, AHORA ESTÁ BIEN:
 app.get('/api/favoritos/:email', async (req, res) => {
     try {
         const { email } = req.params;
-        const user = await Usuario.findOne({ email: email.toLowerCase() }); // Agregué toLowerCase()
+        const user = await Usuario.findOne({ email: email.toLowerCase() });
         if (user) {
             res.status(200).json({ favoritos: user.favoritos || [] });
         } else {
@@ -94,5 +96,5 @@ app.post('/api/favoritos', async (req, res) => {
 // --- EL LISTEN SIEMPRE AL FINAL ---
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log(`✅ Servidor escuchando en: http://localhost:${PORT}`);
+    console.log(`✅ Servidor escuchando en puerto: ${PORT}`);
 });
